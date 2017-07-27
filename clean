@@ -1,0 +1,65 @@
+#!/bin/bash
+
+apt-get install espeak wipe bleachbit
+clear
+(
+modprobe pcspkr
+cd /root/sessions
+echo "10" ;
+espeak "Destruction trace files"
+echo "# Destruction des traces indésirables" ; sleep 1
+wipe -f -r -i *
+cd /root/bts
+wipe -f -r -i *
+cd /root/.armitage
+wipe -f -r -i *
+cd /root/.msf4
+wipe -f -r -i *
+cd /root/.sqlmap
+wipe -f -r -i *
+cd /root/.wireshark
+wipe -f -r -i *
+cd /root/.xxxterm
+wipe -f -r -i *
+cd /
+echo "20" ;
+espeak "Destruction backup files"
+echo "# Destruction des fichiers de sauvegarde" ; sleep 1
+find . -size -500k -type f -name "*~" -exec wipe -r -f {} \; > rapport-cleaner.txt
+find . -size -500k -type f -name "*.bak" -exec wipe -r -f {} \; >> rapport-cleaner.txt
+find . -size -500k -type f -name "*.old" -exec wipe -r -f {} \; >> rapport-cleaner.txt
+echo "40" ;
+espeak "destruction log files"
+echo "# Destruction des fichiers journaux" ; sleep 1
+find . -size -500k -type f -name "*.log" -exec wipe -r -f {} \; >> rapport-cleaner.txt
+find . -type f -name "*.log" -exec rm -f -v {} \; >> rapport-cleaner.txt
+find . -type f -name "*.bak" -exec rm -f -v {} \; >> rapport-cleaner.txt
+find . -type f -name "*~" -exec rm -f -v {} \; >> rapport-cleaner.txt
+find . -type f -name "*.old" -exec rm -f -v {} \; >> rapport-cleaner.txt
+echo "70" ;
+espeak "cleaning and optimisation system"
+echo "# Nettoyage résiduelle & optimisation du système" ; sleep 1
+bleachbit --preset -o -c >> rapport-cleaner.txt
+echo "80" ; 
+echo "# Nettoyage terminé !" ; sleep 1
+echo "90" ;
+espeak "open cleaned rapport"
+echo "# Ouverture du rapport de nettoyage" ;  sleep 1
+zenity --text-info --title="Rapport nettoyage" --filename="rapport-cleaner.txt"
+echo "# Destruction du rapport" ; sleep 1
+wipe -f rapport-cleaner.txt
+echo "100" ;
+espeak "finish !"
+echo "# Terminé !"; beep -f 1500  -l 120 -n -f 2000 -l 120 -n -f 2500 -l 120 -n -f 3000 -l 300 -n -f 2500 -l 120 -n -f 3000 -l 300
+) |
+
+zenity --progress \
+  --title="Nettotage du système" \
+  --text="Analyse des fichiers ..." \
+  --percentage=0
+
+if [ "$?" = -1 ] ; then
+  zenity --error \
+    --text="Nettoyage annulée."
+fi
+

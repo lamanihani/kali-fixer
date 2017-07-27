@@ -1,0 +1,35 @@
+#!/bin/sh
+
+
+echo ""
+echo ""
+
+echo ""
+/bin/echo -e 
+
+
+
+echo ""
+echo ""
+echo "  Replacing Repositories and Updateing APT Source list .. Please Wait .. "
+echo ""
+echo "deb http://http.kali.org/kali/ kali-rolling main contrib non-free\n\ndeb http://security.debian.org/ wheezy/updates main contrib non-free\ndeb-src http://security.debian.org/ wheezy/updates main contrib non-free\n\ndeb http://security.kali.org/kali-security kali-current/updates main contrib non-free\ndeb-src http://security.kali.org/kali-security kali-current/updates main contrib non-free\n\ndeb http://repo.kali.org/kali kali-rolling main contrib non-free\ndeb-src http://repo.kali.org/kali kali-rolling main contrib non-free\n\n# debian base repository\ndeb http://ftp.debian.org/debian wheezy main contrib non-free\ndeb-src http://ftp.debian.org/debian wheezy main contrib non-free\n\n# debian stable updates\ndeb http://ftp.debian.org/debian wheezy-updates main contrib non-free\ndeb-src http://ftp.debian.org/debian wheezy-updates main contrib non-free\n\n# debian stable backports\ndeb http://ftp.debian.org/debian wheezy-backports main contrib non-free\ndeb-src http://ftp.debian.org/debian wheezy-backports main contrib non-free">/etc/apt/sources.list
+sleep 3
+echo ""
+echo ""
+apt-get update
+apt-get dist-upgrade
+echo ""
+echo ""
+echo ""
+echo " #~ Sources.list File Updated Successfully [DONE %100]"
+echo ""
+
+
+
+
+
+
+
+
+
