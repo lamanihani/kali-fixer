@@ -143,7 +143,7 @@ if hani == ('13') :
        print('''
        1 - make you sur that you put the script file in your desktop 
        2 - open new terminal 
-       3 - type in terminal : cd Desktop/fixer-master/compat-wireless-2010-06-26-p
+       3 - type in terminal : cd Desktop/kali-fixer-master/compat-wireless-2010-06-26-p
        4 - now type : make unload 
        5 - now type : make load 
        6 - finish . 
