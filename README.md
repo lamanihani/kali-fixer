@@ -14,7 +14,7 @@ script helps you in solving most of the problems of Kali linux
 
 4 - open new terminal
 
-5 - type cd Desktop/kali-fixer
+5 - type cd Desktop/kali-fixer-master
 
 6 - type python3 kali-fixer.py
 
