@@ -1,8 +1,8 @@
 # 29/07/2017 - algeria-alger
-#
+#youtube : www.youtube.com/c/منضمةالهكرالعربية1
 # by lamani hani 
 #
-# fb : www.facebook.com/lamanihani
+# fb : Ha Ni
 #
 # special tnx to : my GOD ^_^ 
 #  
